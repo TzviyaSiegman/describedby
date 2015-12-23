@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Describedby Samples</title>
+        <meta charset="utf-8"></meta> 
+        
+        <style>
+            details[open] > summary 
+             { background-color: #d3d3d3;
+             width: 50%;}
+            
+</style>
+        <!-- TODO 
+            Make sure table is ARIA-compliant.
+            How does this work for img without figcaption? 
+            Create samples with non-image content. 
+            Create Media Query to enable details/summary to be on demand per user preference, not always present.
+            Add some CSS to these samples.
+        -->
+    </head>
+    <body>
+               
+        <h1><code>aria-describedby</code> with different HTML elements</h1>
+        <p>Images and image descriptions taken from <a href="http://www.w3.org/TR/wai-aria-practices/#Descriptions_external">WAI-ARIA 1.0 Authoring Practices</a> and <a href= "Accessible Image Sample Book">DIAGRAM Center Accessible Image Sample Book </a>.</p>
+        <h2><code>Div </code> Example 1</h2>
+        <figure>
+            <img
+                src="images/histogram.png"
+                alt="Histogram of Blackberry tree heights"
+                aria-describedby="longdesc1"/>
+        </figure>
+        
+        <div>
+            <a id="longdesc1" href="descriptions.html#ex1" target="description">Data for Blackberry Histogram</a>
+        </div>
+        
+        <h2><code>Div </code> Example 2</h2>
+        
+        <figure>
+            <div><img aria-describedby="soc-desc" src="soc.jpg" alt="bar chart of institutional discrimination"/></div>
+            <figcaption>
+                <p>Figure 9.2 Buying a House: Institutional Discrimination and Predatory Lending</p>
+                <div id="soc-desc">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th>Applicants denied a mortgage (applicant income below median income)</th>
+                                <th>Applicants denied a mortgage (applicant income above median income)</th>
+                                <th>Applicants charged higher interest/given subprime loans (applicant income 100% to 120% of median income)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Whites</th>
+                                <td>15%</td>
+                                <td>11%</td>
+                                <td>14%</td>
+                            </tr>
+                            <tr>
+                                <th>Latinos</th>
+                                <td>25%</td>
+                                <td>26%</td>
+                                <td>36%</td>
+                            </tr>
+                            <tr>
+                                <th>African Americans</th>
+                                <td>30%</td>
+                                <td>30%</td>
+                                <td>43%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </figcaption>
+        </figure>    
+        
+        <h2><code>Details</code> and <code>Summary</code> Example 1</h2>
+        <figure>
+            <img
+                src="images/histogram.png"
+                alt="Histogram of Blackberry tree heights"
+                aria-describedby="longdesc2"/>
+            
+            <details class="open">
+                <summary>
+                <a id="longdesc2" href="descriptions.html" target="description">Data for Blackberry Histogram</a>
+                </summary>
+            </details>
+        </figure>
+        
+      
+        
+        <h2><code>Details</code> and <code>Summary</code> Example 2</h2>
+        <figure>
+            <img aria-describedby="soc-desc2" src="soc.jpg" alt="bar chart of institutional discrimination"/>
+            <figcaption>
+                <p>Figure 9.2 Buying a House: Institutional Discrimination and Predatory Lending</p>
+                <details id="soc-desc2" class="open">  
+                    <summary> Extended description</summary>
+                        <table>
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th>Applicants denied a mortgage (applicant income below median income)</th>
+                                <th>Applicants denied a mortgage (applicant income above median income)</th>
+                                <th>Applicants charged higher interest/given subprime loans (applicant income 100% to 120% of median income)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Whites</th>
+                                <td>15%</td>
+                                <td>11%</td>
+                                <td>14%</td>
+                            </tr>
+                            <tr>
+                                <th>Latinos</th>
+                                <td>25%</td>
+                                <td>26%</td>
+                                <td>36%</td>
+                            </tr>
+                            <tr>
+                                <th>African Americans</th>
+                                <td>30%</td>
+                                <td>30%</td>
+                                <td>43%</td>
+                            </tr>
+                        </tbody>
+                    </table>               
+                    
+                </details>
+            </figcaption>
+        </figure>
+        
+        <h2><code>a</code> example 1</h2>
+        
+        <figure>
+            <img
+                src="images/histogram.png"
+                alt="Histogram of Blackberry tree heights"
+                aria-describedby="longdesc3"/>
+              <p>Histogram</p>                         
+                    <a id="longdesc3" href="descriptions.html" target="description">Data for Blackberry Histogram</a>
+                           
+            
+        </figure>
+        
+        <h2><code>a</code> Example 2</h2> <!-- note that this works without aria-describedby but there is nothing to indicate that it is a description -->
+        <figure>
+            <img aria-describedby="soc-desc3" src="soc.jpg" alt="bar chart of institutional discrimination"/>
+            <figcaption>
+                <p>Figure 9.2 Buying a House: Institutional Discrimination and Predatory Lending</p>
+                <a id="soc-desc3" href="descriptions.html#ex2">Extended description for Figure 9.2</a>  
+            </figcaption>
+        </figure>
+        
+           </body>
+</html>
